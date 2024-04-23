@@ -1,0 +1,169 @@
+import pandas as pd
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.ticker as mtick
+import matplotlib.pyplot as plt
+%matplotlib inline
+df = pd.read_csv('/content/WA_Fn-UseC_-Telco-Customer-Churn (1).csv')
+df.info()
+df['SeniorCitizen'].unique()
+# convert datatype for 'TotalCharges'
+df['TotalCharges'] = pd.to_numeric(df['TotalCharges'], errors='coerce')
+df.info()
+# drop missing values
+df.dropna(inplace=True)
+
+# drop customerID
+df.drop('customerID', axis=1, inplace=True)
+df.info()
+df_cat = df.select_dtypes(include=[object])
+df_cat.head()
+df_cat.shape
+df_cat.columns
+for i in df_cat.columns:
+    print(i, df[i].unique())
+from sklearn.preprocessing import OneHotEncoder
+ohe = OneHotEncoder(handle_unknown='ignore', sparse_output=False).set_output(transform='pandas')
+ohetransform = ohe.fit_transform(df[df_cat.columns])
+ohetransform.head()
+df = pd.concat([df, ohetransform], axis=1)
+df.head()
+for i in df_cat.columns:
+    df.drop([i], axis=1, inplace=True)
+df.drop('Churn_No', axis=1, inplace=True)
+df.rename(columns={'Churn_Yes':'Churn'}, inplace=True)
+df.head(10)
+df.info()
+df.describe()
+# Distribution of numeric data
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
+
+columns = ['tenure', 'MonthlyCharges', 'TotalCharges']
+
+for i, column in enumerate(columns):
+    axes[i].hist(df[column], bins=50, color='skyblue', edgecolor='black')
+
+    axes[i].set_title(f'Distribution of {column}')
+
+    axes[i].set_xlabel(column)
+    axes[i].set_ylabel('Frequency')
+
+plt.tight_layout()
+
+plt.show()
+df.head()
+df['Churn'].value_counts().plot(kind='barh', figsize=(8, 6))
+plt.xlabel('Count')
+plt.ylabel('Churn')
+for i, predictor in enumerate(df.drop(columns=['Churn', 'TotalCharges', 'MonthlyCharges', 'tenure'])):
+    plt.figure(i, figsize=(5, 3))
+    sns.countplot(data=df, x=predictor, hue='Churn')
+df[['MonthlyCharges', 'Churn']]
+plt.figure(figsize=(10, 5))
+sns.kdeplot(data=df, x="MonthlyCharges", hue="Churn", fill=True, alpha=0.5)
+plt.title('Density Plot of Monthly Charges by Churn Status')
+plt.xlabel('Monthly Charges')
+plt.ylabel('Density')
+plt.show()
+plt.figure(figsize=(20,8))
+df.corr()['Churn'].sort_values(ascending = False).plot(kind='bar')
+df.to_csv('tel_churn.csv')
+import pandas as pd
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import recall_score
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.tree import DecisionTreeClassifier
+from imblearn.over_sampling import SMOTE
+df.head()
+# Creat independent variable and dependent variable
+X = df.drop('Churn', axis=1)
+y = df['Churn']
+# Creat train and test spilt
+X_train,X_test,y_train,y_test=train_test_split(X, y, test_size=0.2)
+from sklearn.linear_model import LogisticRegression
+
+logreg = LogisticRegression(max_iter=10000)
+logreg.fit(X_train, y_train)
+
+y_pred = logreg.predict(X_test)
+# confusion_matrix
+from sklearn import metrics
+
+cnf_matrix = metrics.confusion_matrix(y_test, y_pred)
+cnf_matrix
+
+class_names=[0,1] # name  of classes
+fig, ax = plt.subplots()
+tick_marks = np.arange(len(class_names))
+plt.xticks(tick_marks, class_names)
+plt.yticks(tick_marks, class_names)
+# create heatmap
+sns.heatmap(pd.DataFrame(cnf_matrix), annot=True, cmap="YlGnBu" ,fmt='g')
+ax.xaxis.set_label_position("top")
+plt.tight_layout()
+plt.title('Confusion matrix', y=1.1)
+plt.ylabel('Actual label')
+plt.xlabel('Predicted label')
+from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred, labels=[0, 1]))
+# UpSampling
+
+from imblearn.combine import SMOTEENN
+
+sm = SMOTEENN()
+X_res, y_res = sm.fit_resample(X,y)
+y_res.value_counts()
+Xr_train, Xr_test, yr_train, yr_test = train_test_split(X_res, y_res,test_size=0.2)
+logreg.fit(Xr_train, yr_train)
+
+yr_pred = logreg.predict(Xr_test)
+print(classification_report(yr_test, yr_pred, labels=[0, 1]))
+model_dt=DecisionTreeClassifier(criterion = "gini",random_state = 100,max_depth=6, min_samples_leaf=8)
+model_dt.fit(Xr_train,yr_train)
+y_pred=model_dt.predict(Xr_test)
+print(classification_report(yr_test, y_pred, labels=[0,1]))
+from sklearn.ensemble import RandomForestClassifier
+model_rf=RandomForestClassifier(n_estimators=100, criterion='gini', random_state = 100,max_depth=6, min_samples_leaf=8)
+model_rf.fit(Xr_train,yr_train)
+y_pred=model_rf.predict(Xr_test)
+print(classification_report(yr_test, y_pred, labels=[0,1]))
+from xgboost import XGBClassifier
+model_xg = XGBClassifier()
+model_xg.fit(Xr_train, yr_train)
+y_pred=model_rf.predict(Xr_test)
+print(classification_report(yr_test, y_pred, labels=[0,1]))
+from sklearn.model_selection import RandomizedSearchCV
+from xgboost import XGBClassifier
+from scipy.stats import uniform, randint
+
+# Define the model
+model_xg = XGBClassifier()
+
+param_distributions = {
+    'max_depth': randint(3, 6),
+    'learning_rate': uniform(0.01, 0.2),
+    'n_estimators': randint(100, 300),
+    'subsample': uniform(0.8, 0.2)
+}
+
+random_search = RandomizedSearchCV(estimator=model_xg,
+                                   param_distributions=param_distributions,
+                                   n_iter=100, cv=3, verbose=2, random_state=50, n_jobs=-1)
+
+random_search.fit(Xr_train, yr_train)
+print(random_search.best_params_)
+best_model = random_search.best_estimator_
+y_pred = best_model.predict(Xr_test)
+print(classification_report(yr_test, y_pred, labels=[0, 1]))
+import pickle
+with open('model3214.pkl', 'wb') as f:
+    pickle.dump(best_model, f)
+best_model = random_search.best_estimator_
+y_pred = best_model.predict([[0,0,0,0,0,7,6,0,1,0,1,0,0,1,1,0,1,2,0,0,0,6,0,1,0,1,0,0,1,1,0,1,2,0,0,0,0,0,1,0,1,0,7,1,1]])
+print(y_pred)
+

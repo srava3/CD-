@@ -1,0 +1,1276 @@
+INDEX:
+
+
+<!DOCTYPE html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Home</title>
+
+    <style>
+@import url('https://fonts.gooleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+header {
+background-color:#85e8ef;
+position: fixed;
+left: 0;
+right: 0;
+top: 0px;
+padding: 30px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+header * {
+display: inline;
+color:white;
+}
+header li {
+margin: 20px;
+}
+header li a {
+color: black;
+text-decoration: none;
+}
+
+
+
+.glow {
+  font-size: 40px;
+  color:black;
+  text-align: center;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #cd80a6, 0 0 40px #db65a0, 0 0 50px #e7368f, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+.glowsub {
+  font-size: 15px;
+  color: #45f3ff;
+
+  animation: glow 1s ease-in-out infinite alternate,scroll 15s linear infinite;
+}
+
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e600a9, 0 0 40px #e600a9, 0 0 50px #e600a9, 0 0 60px #e600a9, 0 0 70px #e600a9;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+.vv{
+    color:#45f3ff
+}
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    
+
+    }
+    100% {
+    
+      transform: translateX(100%);
+    
+    }
+  }
+
+
+.chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #45f3ff;
+        color: rgba(0, 0, 0, 1);
+        	border-radius: 25px;
+
+      }
+      .chartMenu1 {
+        width: 100vw;
+        height: 100px;
+         background: rgba(54, 162, 235, 0.2);
+        color: rgba(54, 162, 235, 1);
+        	border-radius: 25px;
+         
+      }
+      .chartMenu1 p {
+       padding: 10px;
+        font-size: 20px;
+        	border-radius: 25px;
+        
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 10px;
+        	border-radius: 25px;
+
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(50vh - 15px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartCard1 {
+        width: 100vw;
+        height: calc(72vh - 15px);
+        background: rgb(137, 228, 210);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 500px;
+        height: auto;
+        padding: 10px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: rgb(195, 228, 232);
+      }
+      .chartBox p {
+       padding: 10px;
+        font-size: 20px;
+        	border-radius: 25px;
+        
+      }
+
+@import url('https://fonts.gooleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'poppins',sans-serif;
+	border-radius: 25px;
+}
+body
+{
+height: 100vh;
+margin-top: 100px;
+padding: 30px;
+overflow:hidden;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	background: rgb(137, 228, 210);
+}
+
+
+
+
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+</head>
+<body >
+<header>
+<nav>
+    <H2 align="center" style="font-style:italic"> Patron Defection Data Analysis</H2><br><br>
+<ul>
+<li>
+<a href="#" style="color:#1dafc5"> Home </a>
+</li>
+<li>
+<a href="/live"> TryLIVE Analysis</a>
+</li>
+<li>
+<a href="/datavp"> Data Analysis </a>
+</li>
+</ul>
+</nav>
+</header>
+<section>
+  <h1 style="font-size:20px" align="center">Hi!! &#x1F44B; Welcome to <b> Patron Defection Data Analysis</b></h1>
+  <div class="chartCard1">
+    <div class="chartBox">
+      <canvas id="myChartPieA"></canvas>
+    </div>&emsp;
+      <div class="chartBox">
+        <p align="center"  style="color:#1dafc5">The process of analyzing data to predict when customers are likely to stop using a product or service, also known as<b> customer churn</b>. This type of analysis involves using historical customer data, such as demographics, transaction history, usage patterns, and customer interactions, to build predictive models that can forecast which customers are at risk of churning in the future.</b></p>
+          <h2 align="center">Total number of Customers :{{no_of_customers}}</h2>
+          <p align="center" style="color:#1dafc5">For this analysis we use <b style="color: #000; font-size: larger;"> XGBoost </b>model. This model gives around 96% accuracy.</p>
+          
+      </div>
+  </div>
+  <div id="feedbackData"
+  total="{{ no_of_customers }}">
+</div>
+
+ <script>
+  const Element1 = document.getElementById('feedbackData');
+const t = Element1.getAttribute('total');
+  // setup
+  
+  const dataA = {
+    labels: ['Gender','Senior Citizen','Partner','Dependents','Tenure','Phone service','Multiple lines','Internet service','Online security','Online backup','Device protection','Tech support','Streaming TV','Streaming Movies','Contract','Paperless billing','Payment method','Monthly charges','Total charges'],
+    datasets: [{
+      label: 'Dataset Description',
+      data:[t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t
+          
+      ],
+      backgroundColor: [
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 26, 104, 0.5)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+        
+      ],
+      borderColor: [
+        'rgba(255, 26, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+       
+      ],
+      borderWidth: 1
+    }]
+  };
+
+
+  // config
+  const configA= {
+    type: 'pie',
+    data:dataA,
+    options: {
+    aspectRatio:1,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+
+  // render init block
+  const myChartA= new Chart(
+    document.getElementById('myChartPieA'),
+    configA
+  );
+  // setup line
+
+
+  </script>
+  </section>
+</body>
+</html>
+
+LIVE:
+
+<!DOCTYPE html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Home</title>
+
+    <style>
+@import url('https://fonts.gooleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+header {
+background-color:#85e8ef;
+position: fixed;
+left: 0;
+right: 0;
+top: 0px;
+padding: 30px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+header * {
+display: inline;
+color:white;
+}
+header li {
+margin: 20px;
+}
+header li a {
+color: black;
+text-decoration: none;
+}
+
+
+
+.glow {
+  font-size: 40px;
+  color:black;
+  text-align: center;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #cd80a6, 0 0 40px #db65a0, 0 0 50px #e7368f, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+.glowsub {
+  font-size: 15px;
+  color: #45f3ff;
+
+  animation: glow 1s ease-in-out infinite alternate,scroll 15s linear infinite;
+}
+
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e600a9, 0 0 40px #e600a9, 0 0 50px #e600a9, 0 0 60px #e600a9, 0 0 70px #e600a9;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+.vv{
+    color:#45f3ff
+}
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    
+
+    }
+    100% {
+    
+      transform: translateX(100%);
+    
+    }
+  }
+
+
+
+@import url('https://fonts.gooleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'poppins',sans-serif;
+	border-radius: 25px;
+}
+body
+{
+height: 280vh;
+margin-top: 100px;
+padding: 30px;
+position: relative;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	background: rgb(137, 228, 210);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    background-color: #33abcc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    background-color: #85e8ef;
+    color: rgb(26, 10, 28);
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #074c51;
+    color: white;
+}
+
+
+
+
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+</head>
+<body >
+<header>
+<nav>
+    <H2 align="center" style="font-style:italic"> Patron Defection Data Analysis</H2><br><br>
+<ul>
+<li>
+<a href="/"> Home </a>
+</li>
+<li>
+<a href="#" style="color: #1dafc5;"> TryLIVE Analysis</a>
+</li>
+<li>
+<a href="/datavp"> Data Analysis </a>
+</li>
+</ul>
+</nav>
+</header>
+<div>
+  <h3 style="color:black;font-size: 30px;"align="center" >Provide the following details</b></h3><br>
+  
+    <form action="/datav" method="post">
+      
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            
+        </select><br><br>
+
+        <label for="senior_citizen">Senior Citizen:</label>
+        <input type="checkbox" id="senior_citizen" name="senior_citizen" value="Yes"><br><br>
+
+        <label for="partner">Partner:</label>
+        <select id="partner" name="partner">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="dependents">Dependents:</label>
+        <select id="dependents" name="dependents">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="tenure">Tenure (months):</label>
+        <input type="number" id="tenure" name="tenure" required><br><br>
+
+        <label for="phone_service">Phone Service:</label>
+        <select id="phone_service" name="phone_service">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="multiple_lines">Multiple Lines:</label>
+        <select id="multiple_lines" name="multiple_lines">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No phone service">No phone service</option>
+        </select><br><br>
+
+        <label for="internet_service">Internet Service:</label>
+        <select id="internet_service" name="internet_service">
+            <option value="DSL">DSL</option>
+            <option value="Fiber optic">Fiber optic</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="online_security">Online Security:</label>
+        <select id="online_security" name="online_security">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No internet service">No internet service</option>
+        </select><br><br>
+
+        <label for="online_backup">Online Backup:</label>
+        <select id="online_backup" name="online_backup">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No internet service">No internet service</option>
+        </select><br><br>
+
+        <label for="device_protection">Device Protection:</label>
+        <select id="device_protection" name="device_protection">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No internet service">No internet service</option>
+        </select><br><br>
+
+        <label for="tech_support">Tech Support:</label>
+        <select id="tech_support" name="tech_support">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No internet service">No internet service</option>
+        </select><br><br>
+
+        <label for="streaming_tv">Streaming TV:</label>
+        <select id="streaming_tv" name="streaming_tv">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No internet service">No internet service</option>
+        </select><br><br>
+
+        <label for="streaming_movies">Streaming Movies:</label>
+        <select id="streaming_movies" name="streaming_movies">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No internet service">No internet service</option>
+        </select><br><br>
+
+        <label for="contract">Contract:</label>
+        <select id="contract" name="contract">
+            <option value="Month-to-month">Month-to-month</option>
+            <option value="One year">One year</option>
+            <option value="Two year">Two year</option>
+        </select><br><br>
+
+        <label for="paperless_billing">Paperless Billing:</label>
+        <select id="paperless_billing" name="paperless_billing">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="payment_method">Payment Method:</label>
+        <select id="payment_method" name="payment_method">
+            <option value="Electronic check">Electronic check</option>
+            <option value="Mailed check">Mailed check</option>
+            <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+            <option value="Credit card (automatic)">Credit card (automatic)</option>
+        </select><br><br>
+
+        <label for="monthly_charges">Monthly Charges:</label>
+        <input type="number" id="monthly_charges" name="monthly_charges" step="0.01" required><br><br>
+
+        <label for="total_charges">Total Charges:</label>
+        <input type="number" id="total_charges" name="total_charges" step="0.01" required><br><br>
+
+        
+  <input type="submit" value="Submit">
+</form>
+
+</div>
+
+</body>
+</html>
+
+RESULT:
+<!DOCTYPE html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Home</title>
+
+    <style>
+@import url('https://fonts.gooleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+header {
+background-color:#85e8ef;
+position: fixed;
+left: 0;
+right: 0;
+top: 0px;
+padding: 20px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+header * {
+display: inline;
+color:white;
+}
+header li {
+margin: 20px;
+}
+header li a {
+color: black;
+text-decoration: none;
+}
+
+
+
+.glow {
+  font-size: 40px;
+  color:black;
+  text-align: center;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #cd80a6, 0 0 40px #db65a0, 0 0 50px #e7368f, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+.glowsub {
+  font-size: 15px;
+  color: #45f3ff;
+
+  animation: glow 1s ease-in-out infinite alternate,scroll 15s linear infinite;
+}
+
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e600a9, 0 0 40px #e600a9, 0 0 50px #e600a9, 0 0 60px #e600a9, 0 0 70px #e600a9;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+.vv{
+    color:#45f3ff
+}
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    
+
+    }
+    100% {
+    
+      transform: translateX(100%);
+    
+    }
+  }
+
+
+.chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #45f3ff;
+        color: rgba(0, 0, 0, 1);
+        	border-radius: 25px;
+
+      }
+      .chartMenu1 {
+        width: 100vw;
+        height: 100px;
+         background: rgba(54, 162, 235, 0.2);
+        color: rgba(54, 162, 235, 1);
+        	border-radius: 25px;
+         
+      }
+      .chartMenu1 p {
+       padding: 10px;
+        font-size: 20px;
+        	border-radius: 25px;
+        
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 10px;
+        	border-radius: 25px;
+
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(50vh - 15px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartCard1 {
+        margin-top: 0%;
+        width: 100vw;
+        height: calc(50vh - 15px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 250px;
+    
+        padding: 10px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: rgb(195, 228, 232);
+      }
+      .chartBox1 {
+        width: 340px;
+        height: fit-content;
+        padding: 10px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: rgb(195, 228, 232);
+      }
+      .chartBox p {
+       padding: 10px;
+        font-size: 20px;
+        	border-radius: 25px;
+        
+      }
+
+@import url('https://fonts.gooleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'poppins',sans-serif;
+	border-radius: 25px;
+}
+body
+{
+height: 170vh;
+margin-top: 100px;
+padding: 30px;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	background: rgb(137, 228, 210);
+}
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: green;
+    margin-top: 5px;
+}
+
+
+
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+</head>
+<body >
+<header>
+<nav>
+    <H2 align="center" style="font-style:italic"> Patron Defection result Data Analysis</H2><br><br>
+<ul>
+<li>
+<a href="/"> Home </a>
+</li>
+<li>
+<a href="/live"> TryLIVE Analysis</a>
+</li>
+<li>
+<a href="#"  style="color:#1dafc5"> Data Analysis </a>
+</li>
+</ul>
+</nav>
+</header>
+<section>
+  <div class="chartCard1">
+    <div class="chartBox">
+      <p align="center">Churn analysis</p>
+      <canvas id="myChartPieA"></canvas>
+    </div>&emsp;
+      <div class="chartBox1">
+        <canvas id="myChartBarA"></canvas>
+  </div>&emsp;
+  <div class="chartBox">
+    <p align="center">Internet Service</p>
+    <canvas id="myChartPieA1"></canvas>
+  </div>&emsp;
+  
+  </div>&emsp;
+  <div class="chartCard1">
+    <div class="chartBox">
+      <p align="center">Contract Type</p>
+      <canvas id="myChartPieAA"></canvas>
+    </div>&emsp;
+    <div class="chartBox1">
+      <p align="center">Payment Type</p>
+      <canvas id="myChartPieAR"></canvas>
+    </div>&emsp;
+      <div class="chartBox">
+        <canvas id="myChartPieARS"></canvas>
+  </div>&emsp;
+  </div>
+  <div class="chartCard1">
+    <div class="chartBox">
+      <canvas id="myChartBarAH"></canvas>
+    </div>&emsp;
+    <div class="chartBox1">
+      <p align="center" style="font-size: 30px;">OverAll Statistics</p>
+      <p></p>
+      <p>Total Customers: <b style="color: #1dafc5;font-size: 50px;">{{ churn_yes + churn_no }}</b></p>
+      <p>Total Churns : <b style="font-size: 15px;">{{ churn_yes }}</b></p>
+      <p>Total Non Churns: <b style="font-size: 15px;">{{ churn_no }}</b></p>
+      <p>Churn Rate: <b style="font-size: 15px;">{{ churn_yes / (churn_yes + churn_no) * 100 }}%</b></p>
+      <p>Female Churn Rate:<b style="font-size: 15px;"> {{ female / (churn_yes + churn_no) * 100 }}%</b></p>
+      <p>Male Churn Rate:<b style="font-size: 15px;"> {{ male / (churn_yes + churn_no) * 100 }}%</b></p>
+    </div>&emsp;
+    </div>
+  <div id="feedbackData"
+  churn_yes="{{ churn_yes }}"
+  churn_no="{{ churn_no }}"
+    female="{{ female }}"
+    male="{{ male }}"
+    seniorc_yes="{{ seniorc_yes }}"
+    seniorc_no="{{ seniorc_no }}"
+    partner_yes="{{ partner_yes }}"
+    partner_no="{{ partner_no }}"
+    dependents_yes="{{ dependents_yes }}"
+    dependents_no="{{ dependents_no}}"
+    inter_DSL="{{ inter_DSL }}"
+    inter_Fiber="{{ inter_Fiber }}"
+    inter_No="{{ inter_No }}"
+    phone_yes="{{ phone_yes }}"
+    phone_no="{{ phone_no }}"
+    multiser_yes="{{ multiser_yes }}"
+    multiser_no="{{ multiser_no }}"
+    deviceP_yes="{{ deviceP_yes }}"
+    deviceP_no="{{ deviceP_no }}"
+    techser_yes="{{ techser_yes }}"
+    techser_no="{{ techser_no }}"
+    onlinesec_yes="{{ onlinesec_yes }}"
+    onlinesec_no="{{ onlinesec_no }}"
+    onlinback_yes="{{ onlinback_yes }}"
+    onlinback_no="{{ onlinback_no }}"
+    contract_m="{{ contract_m }}"
+    contract_1y="{{ contract_1y }}"
+    contract_2y="{{ contract_2y }}"
+    paperless_yes="{{ paperless_yes }}"
+    paperless_no="{{ paperless_no }}"
+    pay_E="{{ pay_E }}"
+    pay_B="{{ pay_B }}"
+    pay_C="{{ pay_C }}"
+    pay_M="{{ pay_M }}"
+    streaming_movies_yes="{{ streaming_movies_yes }}",
+    streaming_movies_no=" {{ streaming_movies_no }}",
+    streaming_tv_yes=" {{ streaming_tv_yes }}",
+    streaming_tv_no=" {{ streaming_tv_no }}",
+    
+    
+></div>
+
+ <script>
+const Element1 = document.getElementById('feedbackData');
+const chy = Element1.getAttribute('churn_yes');
+const chn = Element1.getAttribute('churn_no');
+const fe = Element1.getAttribute('female');
+const ma = Element1.getAttribute('male');
+const se = Element1.getAttribute('seniorc_yes');
+const sn = Element1.getAttribute('seniorc_no');
+const pa = Element1.getAttribute('partner_yes');
+const pn = Element1.getAttribute('partner_no');
+const de = Element1.getAttribute('dependents_yes');
+const dn = Element1.getAttribute('dependents_no');
+const inD = Element1.getAttribute('inter_DSL');
+const inF = Element1.getAttribute('inter_Fiber');
+const inN = Element1.getAttribute('inter_No');
+const phy = Element1.getAttribute('phone_yes');
+const phn = Element1.getAttribute('phone_no');
+const mu = Element1.getAttribute('multiser_yes');
+const mn = Element1.getAttribute('multiser_no');
+const deP = Element1.getAttribute('deviceP_yes');
+const deN = Element1.getAttribute('deviceP_no');
+const teS = Element1.getAttribute('techser_yes');
+const teN = Element1.getAttribute('techser_no');
+const onS = Element1.getAttribute('onlinesec_yes');
+const onN = Element1.getAttribute('onlinesec_no');
+const onB = Element1.getAttribute('onlinback_yes');
+const onN1 = Element1.getAttribute('onlinback_no');
+const coM = Element1.getAttribute('contract_m');
+const co1 = Element1.getAttribute('contract_1y');
+const co2 = Element1.getAttribute('contract_2y');
+const paY = Element1.getAttribute('paperless_yes');
+const paN = Element1.getAttribute('paperless_no');
+const paE = Element1.getAttribute('pay_E');
+const paB = Element1.getAttribute('pay_B');
+const paC = Element1.getAttribute('pay_C');
+const paM = Element1.getAttribute('pay_M');
+const stM = Element1.getAttribute('streaming_movies_yes');
+const stN = Element1.getAttribute('streaming_movies_no');
+const stT = Element1.getAttribute('streaming_tv_yes');
+const stN1 = Element1.getAttribute('streaming_tv_no');
+
+
+
+  // setup
+  
+  const dataA = {
+    labels: ['Churn','No Churn'],
+    datasets: [{
+      data:[chy,chn
+          
+      ],
+      backgroundColor: [
+      'rgba(75, 192, 192, 1)',
+      'rgba(255, 26, 104, 0.5)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+        
+      ],
+      borderColor: [
+        'rgba(255, 26, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+       
+      ],
+      borderWidth: 1
+    }]
+  };
+
+
+  // config
+  const configA= {
+    type: 'doughnut',
+    data:dataA,
+  };
+
+  // render init block
+  const myChartA= new Chart(
+    document.getElementById('myChartPieA'),
+    configA
+  );
+  // setup line
+  const dataB = {
+    labels: ['Female','Male','Senior citizen','Having Partner','Not Having Partner','Having Dependents','Not Having Dependents'],
+    datasets: [{
+      label: ['Customer analysis'],
+      data:[fe,ma,se,pa,pn,de,dn
+          
+      ],
+      backgroundColor: [
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 26, 104, 0.5)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(0, 0, 0, 0.2)'
+        
+      ],
+      borderColor: [
+        'rgba(255, 26, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(0, 0, 0, 0.2)'
+       
+      ],
+      borderWidth: 1
+    }]
+  };
+
+
+  // config
+  const configB= {
+    type: 'bar',
+    data:dataB,
+    options: {
+    aspectRatio:1,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+
+  // render init block
+  const myChartB= new Chart(
+    document.getElementById('myChartBarA'),
+    configB
+  );
+
+
+
+  
+  // setup
+  
+  const datapieA = {
+    labels: ['DSL','Fiber optic','No internet service'],
+    datasets: [{
+      data:[inD,inF,inN
+          
+      ],
+      backgroundColor: [
+        'rgba(45, 169, 235, 1)',
+        'rgba(255, 326, 104, 0.5)',
+        'rgba(365, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+        
+      ],
+      borderColor: [
+        'rgba(275, 56, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(220, 216, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+       
+      ],
+      borderWidth: 1
+    }]
+  };
+
+
+  // config
+  const configA1= {
+    type: 'pie',
+    data:datapieA,
+  };
+
+  // render init block
+  const myChartA1= new Chart(
+    document.getElementById('myChartPieA1'),
+    configA1
+  );
+
+ 
+
+  const dataAA = {
+    labels: ['Monthly','One year','Two year'],
+    datasets: [{
+      data:[coM,co1,co2
+          
+      ],
+      backgroundColor: [
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 26, 104, 0.5)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+        
+      ],
+      borderColor: [
+        'rgba(255, 26, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+       
+      ],
+      borderWidth: 1
+    }]
+  };
+
+
+  // config
+  const configAA= {
+    type: 'doughnut',
+    data:dataAA,
+  };
+
+  // render init block
+  const myChartAA= new Chart(
+    document.getElementById('myChartPieAA'),
+    configAA
+  );
+
+
+   const dataAR = {
+    labels: ['Electronic check','Bank transfer (automatic)','Credit card (automatic)','Mailed check'],
+    datasets: [{
+      label:[],
+      data:[paE,paB,paC,paC
+      ],
+      fill:true,
+      backgroundColor: [
+      'rgba(75, 192, 192, 0.2)',
+        'rgba(255, 26, 104, 0.5)',
+        'rgba(255, 26, 104, 0.5)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+        
+      ],
+      borderColor: [
+        'rgba(255, 26, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+       
+      ],
+      tension:0.5
+    }]
+  };
+
+
+  // config
+  const configAR= {
+    type: 'line',
+    data:dataAR,
+    options: {
+    aspectRatio:1,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+  // render init block
+  const myChartAR= new Chart(
+    document.getElementById('myChartPieAR'),
+    configAR
+  );
+
+
+  
+  const dataAAS = {
+    labels: ['Streaming movies(YES)','Streaming movies(NO)','Streaming TV(YES)','Streaming TV(NO)'],
+    datasets: [{
+      data:[stM,stN,stT,stN1
+          
+      ],
+      backgroundColor: [
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 26, 104, 0.5)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+        
+      ],
+      borderColor: [
+        'rgba(255, 26, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+       
+      ],
+      borderWidth: 1
+    }]
+  };
+
+
+  // config
+  const configAAS= {
+    type: 'doughnut',
+    data:dataAAS,
+  };
+  const myChartARS= new Chart(
+    document.getElementById('myChartPieARS'),
+    configAAS
+  );
+
+  const dataBH = {
+    labels: ['Online backup(YES)','Online backup(NO)','Online Security(YES)','Online Security(NO)'],
+    datasets: [{
+      label: ['Online services'],
+      data:[onB,onN,onS,onN1
+          
+      ],
+      backgroundColor: [
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 26, 104, 0.5)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(0, 0, 0, 0.2)'
+        
+      ],
+      borderColor: [
+        'rgba(255, 26, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(0, 0, 0, 0.2)'
+       
+      ],
+      borderWidth: 1
+    }]
+  };
+
+
+  // config
+  const configBH= {
+    type: 'line',
+    data:dataBH,
+    options: {
+    aspectRatio:1,
+      scales: {
+        x: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+
+  // render init block
+  const myChartBH= new Chart(
+    document.getElementById('myChartBarAH'),
+    configBH
+  );
+
+
+
+
+  
+
+  </script>
+  </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
